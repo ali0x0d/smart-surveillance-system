@@ -15,18 +15,7 @@ A smart surveillance system that combines on-device video analysis with a web da
 
 ## How it works
 
-```mermaid
-flowchart LR
-    camera([Camera])
-    edge["Edge device<br/>analyzes the video"]
-    server["Server<br/>stores events, sends alerts"]
-    dashboard["Web dashboard<br/>live view, events, controls"]
-
-    camera --> edge
-    edge -->|live video and events| server
-    server -->|commands| edge
-    server <--> dashboard
-```
+![How the camera, edge device, server and web dashboard connect](docs/architecture.svg)
 
 - **Edge device:** captures the video and analyzes it on the device itself, then sends the live video and events to the server. Because the analysis happens next to the camera, the server doesn't have to analyze any video.
 - **Server:** receives the video and events, keeps the event history, sends alerts and hosts the web dashboard.
